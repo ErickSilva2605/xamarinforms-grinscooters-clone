@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrinScootersClone.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace GrinScootersClone
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainView());
         }
 
         protected override void OnStart()
