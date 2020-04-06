@@ -6,6 +6,7 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Viagem"
+    IconImageSource="tab_trip"
     mc:Ignorable="d"
     >
     <ContentPage.Content>
