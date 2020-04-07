@@ -11,6 +11,10 @@
 
         <Color x:Key="MainColor">#09D46B</Color>
 
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource MainColor}" />
+        </Style>
+
         <Style x:Key="RoundedGreenButton" TargetType="Button">
             <Setter Property="CornerRadius" Value="50" />
             <Setter Property="TextColor" Value="White" />

@@ -22,6 +22,7 @@
                 x:Name="map"
                 Grid.Row="0"
                 Grid.RowSpan="3"
+                MapType="Street"
                 />
 
             <ImageButton
@@ -50,8 +51,8 @@
                 WidthRequest="200"
                 >
                 <Button
-                    Padding="40,0,0,0"
-                    ContentLayout="Left, -80"
+                    Padding="45,0,0,0"
+                    ContentLayout="Left, -85"
                     HorizontalOptions="Center"
                     ImageSource="map_scan"
                     Style="{StaticResource RoundedGreenButton}"
