@@ -23,6 +23,9 @@ namespace GrinScootersClone.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            Xamarin.FormsGoogleMaps.Init("AIzaSyDZDTKnW6IIskM1HRekT1n9d0vnJvBIzWk");
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

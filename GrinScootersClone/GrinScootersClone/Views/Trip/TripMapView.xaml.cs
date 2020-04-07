@@ -15,6 +15,8 @@ namespace GrinScootersClone.Views.Trip
         public TripMapView()
         {
             InitializeComponent();
+
+            map.UiSettings.ZoomControlsEnabled = false;
         }
     }
 }
