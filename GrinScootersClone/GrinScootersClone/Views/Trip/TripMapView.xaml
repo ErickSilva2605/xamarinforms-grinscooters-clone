@@ -22,7 +22,6 @@
                 x:Name="map"
                 Grid.Row="0"
                 Grid.RowSpan="3"
-                MapType="Street"
                 />
 
             <ImageButton
@@ -41,20 +40,25 @@
                 VerticalOptions="Start"
                 />
 
-            <Button
+            <Frame
                 Grid.Row="2"
-                Margin="0,30"
-                BackgroundColor="#09D46B"
+                Padding="0"
                 CornerRadius="50"
-                FontSize="Medium"
                 HeightRequest="60"
                 HorizontalOptions="Center"
-                ImageSource="map_scan"
-                Text="Escanear"
-                TextColor="White"
-                VerticalOptions="End"
+                VerticalOptions="Center"
                 WidthRequest="200"
-                />
+                >
+                <Button
+                    Padding="40,0,0,0"
+                    ContentLayout="Left, -80"
+                    HorizontalOptions="Center"
+                    ImageSource="map_scan"
+                    Style="{StaticResource RoundedGreenButton}"
+                    Text="Escanear"
+                    VerticalOptions="Center"
+                    />
+            </Frame>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

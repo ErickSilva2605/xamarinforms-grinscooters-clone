@@ -9,6 +9,18 @@
     >
     <Application.Resources>
 
+        <Color x:Key="MainColor">#09D46B</Color>
+
+        <Style x:Key="RoundedGreenButton" TargetType="Button">
+            <Setter Property="CornerRadius" Value="50" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="HeightRequest" Value="60" />
+            <Setter Property="WidthRequest" Value="200" />
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="BackgroundColor" Value="{StaticResource MainColor}" />
+        </Style>
+
         <Style x:Key="RoundedWhiteButton" TargetType="ImageButton">
             <Setter Property="CornerRadius" Value="20" />
             <Setter Property="HeightRequest" Value="40" />
