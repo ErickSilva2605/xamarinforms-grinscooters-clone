@@ -38,6 +38,7 @@ namespace GrinScootersClone.ViewModels
         private async Task InitializationAsync()
         {
             await LoadMapStyleAsync();
+            LoadMyPosition();
         }
 
         private async Task LoadMapStyleAsync()
@@ -51,6 +52,12 @@ namespace GrinScootersClone.ViewModels
             {
                 System.Diagnostics.Debug.WriteLine(exception.Message);
             }
+        }
+
+        private void LoadMyPosition()
+        {
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
+                 new Position(-23.604192, -46.524381), Distance.FromMeters(400)), true);
         }
     }
 }
