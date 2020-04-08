@@ -10,6 +10,8 @@ namespace GrinScootersClone.Services
 {
     public class ApiService : IApi
     {
+        private static ApiService _instance;
+        public static ApiService Instance = _instance ?? (_instance = new ApiService());
         private readonly IApi _api;
         private ApiService()
         {

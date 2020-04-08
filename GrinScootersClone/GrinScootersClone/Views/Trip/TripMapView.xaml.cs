@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GrinScootersClone.Services;
+using GrinScootersClone.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +19,7 @@ namespace GrinScootersClone.Views.Trip
             InitializeComponent();
 
             map.UiSettings.ZoomControlsEnabled = false;
+            BindingContext = new TripMapViewModel(Navigation, ApiService.Instance);
         }
     }
 }
