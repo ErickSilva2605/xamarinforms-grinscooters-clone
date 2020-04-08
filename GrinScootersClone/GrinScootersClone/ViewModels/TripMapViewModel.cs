@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.GoogleMaps;
 
 namespace GrinScootersClone.ViewModels
 {
@@ -16,8 +17,10 @@ namespace GrinScootersClone.ViewModels
         private readonly IApi _api;
         private readonly INavigation _navigation;
 
+        public static Map MyMap;
+
         private MapStyleModel _mapStyle;
-        public MapStyleModel MapStyle
+        public MapStyleModel MapStyles
         {
             get => _mapStyle;
             set => RaiseIfPropertyChanged(ref _mapStyle, value);
@@ -28,6 +31,7 @@ namespace GrinScootersClone.ViewModels
             _api = api;
             _navigation = navigation;
 
+            MyMap = new Map();
             Initialization = InitializationAsync();
         }
 
@@ -40,7 +44,8 @@ namespace GrinScootersClone.ViewModels
         {
             try
             {
-                MapStyle = await _api.GetMapStyle();
+                MapStyles = await _api.GetMapStyle();
+                MyMap.MapStyle = MapStyle.FromJson(MapStyles.MapStyle);
             }
             catch (Exception exception)
             {
