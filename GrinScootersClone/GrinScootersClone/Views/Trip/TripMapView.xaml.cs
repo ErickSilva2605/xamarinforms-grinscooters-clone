@@ -19,6 +19,7 @@ namespace GrinScootersClone.Views.Trip
             InitializeComponent();
 
             map.UiSettings.ZoomControlsEnabled = false;
+            map.UiSettings.RotateGesturesEnabled = false;
             BindingContext = new TripMapViewModel(Navigation, ApiService.Instance);
             TripMapViewModel.MyMap = map;
         }

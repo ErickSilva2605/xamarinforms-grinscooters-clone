@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.GoogleMaps;
+using GoogleMaps = Xamarin.Forms.GoogleMaps;
+using static Xamarin.Essentials.Permissions;
 
 namespace GrinScootersClone.ViewModels
 {
@@ -17,7 +19,9 @@ namespace GrinScootersClone.ViewModels
         private readonly IApi _api;
         private readonly INavigation _navigation;
 
-        public static Map MyMap;
+        public static GoogleMaps.Map MyMap;
+
+        public Command GoToMyLocationCommand { get; private set; }
 
         private MapStyleModel _mapStyle;
         public MapStyleModel MapStyles
@@ -31,14 +35,19 @@ namespace GrinScootersClone.ViewModels
             _api = api;
             _navigation = navigation;
 
-            MyMap = new Map();
+            MyMap = new GoogleMaps.Map();
+
+            GoToMyLocationCommand = new Command(
+                async () => await MoveToCurrentPosition()
+            );
+
             Initialization = InitializationAsync();
         }
 
         private async Task InitializationAsync()
         {
             await LoadMapStyleAsync();
-            LoadMyPosition();
+            await MoveToCurrentPosition();
         }
 
         private async Task LoadMapStyleAsync()
@@ -46,18 +55,48 @@ namespace GrinScootersClone.ViewModels
             try
             {
                 MapStyles = await _api.GetMapStyle();
-                MyMap.MapStyle = MapStyle.FromJson(MapStyles.MapStyle);
+                MyMap.MapStyle = GoogleMaps.MapStyle.FromJson(MapStyles.MapStyle);
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(exception.Message);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
 
-        private void LoadMyPosition()
+        private async Task MoveToCurrentPosition()
         {
-            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
-                 new Position(-23.604192, -46.524381), Distance.FromMeters(400)), true);
+            var location = await GetLocationAsync();
+
+            if (location == null)
+                location = new Location(-23.5504533, -46.6360999);
+
+            MyMap.MoveToRegion(GoogleMaps.MapSpan.FromCenterAndRadius(
+                 new GoogleMaps.Position(location.Latitude, location.Longitude), GoogleMaps.Distance.FromMeters(400)));
+        }
+
+        public async Task<Location> GetLocationAsync()
+        {
+            var status = await CheckAndRequestPermissionAsync(new Permissions.LocationWhenInUse());
+            if (status != PermissionStatus.Granted)
+            {
+                MyMap.MyLocationEnabled = false;
+                return null;
+            }
+
+            MyMap.MyLocationEnabled = true;
+            return await Geolocation.GetLocationAsync();
+        }
+
+        public async Task<PermissionStatus> CheckAndRequestPermissionAsync<T>(T permission)
+                    where T : BasePermission
+        {
+            var status = await permission.CheckStatusAsync();
+            if (status != PermissionStatus.Granted)
+            {
+                status = await permission.RequestAsync();
+            }
+
+            return status;
         }
     }
 }
