@@ -23,6 +23,7 @@
                 Grid.Row="0"
                 Grid.RowSpan="3"
                 MapType="Street"
+                MyLocationEnabled="True"
                 />
 
             <ImageButton
