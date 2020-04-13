@@ -22,5 +22,10 @@ namespace GrinScootersClone.Services
         {
             return await _api.GetMapStyle();
         }
+
+        public async Task<IList<PlaceModel>> GetPlaces()
+        {
+            return await _api.GetPlaces();
+        }
     }
 }

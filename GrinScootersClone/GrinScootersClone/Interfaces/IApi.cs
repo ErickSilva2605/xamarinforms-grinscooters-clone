@@ -11,5 +11,8 @@ namespace GrinScootersClone.Interfaces
     {
         [Get("/map/style")]
         Task<MapStyleModel> GetMapStyle();
+
+        [Get("/map/pins")]
+        Task<IList<PlaceModel>> GetPlaces();
     }
 }

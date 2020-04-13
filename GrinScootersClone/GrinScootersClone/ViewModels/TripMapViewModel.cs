@@ -22,6 +22,7 @@ namespace GrinScootersClone.ViewModels
         public static GoogleMaps.Map MyMap;
 
         public Command GoToMyLocationCommand { get; private set; }
+        public ObservableCollection<GoogleMaps.Pin> Pins { get; set; }
 
         private MapStyleModel _mapStyle;
         public MapStyleModel MapStyles
@@ -48,6 +49,7 @@ namespace GrinScootersClone.ViewModels
         {
             await LoadMapStyleAsync();
             await MoveToCurrentPosition();
+            await GetPlaces();
         }
 
         private async Task LoadMapStyleAsync()
@@ -97,6 +99,32 @@ namespace GrinScootersClone.ViewModels
             }
 
             return status;
+        }
+
+        private async Task GetPlaces()
+        {
+            try
+            {
+                var places = await _api.GetPlaces();
+                LoadPins(places);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private void LoadPins(IList<PlaceModel> places)
+        {
+            foreach (var place in places)
+            {
+                Pins.Add(new GoogleMaps.Pin
+                {
+                    Label = place.Description,
+                    Position = new GoogleMaps.Position(place.Latitude, place.Longitude),
+                    Icon = GoogleMaps.BitmapDescriptorFactory.FromBundle(place.Icon)
+                });
+            }
         }
     }
 }
