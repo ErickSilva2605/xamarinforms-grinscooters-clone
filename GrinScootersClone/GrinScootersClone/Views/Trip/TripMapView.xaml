@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="120" />
+                <RowDefinition Height="100" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="120" />
             </Grid.RowDefinitions>
@@ -37,6 +37,22 @@
                 Style="{StaticResource RoundedWhiteButton}"
                 VerticalOptions="Start"
                 />
+
+            <Frame
+                x:Name="Searching"
+                Grid.Row="0"
+                Margin="0,15,0,0"
+                Padding="10,0"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                >
+                <Label
+                    FontSize="12"
+                    Text="Procurando Grin..."
+                    TextColor="Black"
+                    />
+            </Frame>
 
             <ImageButton
                 Grid.Row="0"

@@ -22,6 +22,16 @@ namespace GrinScootersClone.Views.Trip
             map.UiSettings.RotateGesturesEnabled = false;
             BindingContext = new TripMapViewModel(Navigation, ApiService.Instance);
             TripMapViewModel.MyMap = map;
+
+            map.CameraIdled += async (sender, e) =>
+            {
+                Searching.IsVisible = true;
+
+                await Task.Delay(300);
+
+                Searching.IsVisible = false;
+
+            };
         }
     }
 }
