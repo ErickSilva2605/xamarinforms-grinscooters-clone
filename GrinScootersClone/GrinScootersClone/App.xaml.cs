@@ -1,7 +1,5 @@
 ﻿using GrinScootersClone.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace GrinScootersClone
 {

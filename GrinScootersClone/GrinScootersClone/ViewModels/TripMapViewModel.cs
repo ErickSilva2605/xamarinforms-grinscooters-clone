@@ -3,33 +3,49 @@ using GrinScootersClone.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using GoogleMaps = Xamarin.Forms.GoogleMaps;
+using Xamarin.Forms.GoogleMaps;
 using static Xamarin.Essentials.Permissions;
+using GoogleMaps = Xamarin.Forms.GoogleMaps;
 
 namespace GrinScootersClone.ViewModels
 {
-    public class TripMapViewModel : BaseViewModel, IAsyncInitialization
+    public class TripMapViewModel : BaseViewModel, IInitialize
     {
-        public Task Initialization { get; }
+        #region Fields
 
         private readonly IApi _api;
         private readonly INavigation _navigation;
 
-        public static GoogleMaps.Map MyMap;
-
-        public Command GoToMyLocationCommand { get; private set; }
-        public ObservableCollection<GoogleMaps.Pin> Pins { get; set; }
+        private readonly double _defaultLatitude = -23.5504533;
+        private readonly double _defaultLongitude = -46.6360999;
 
         private MapStyleModel _mapStyle;
+        public static GoogleMaps.Map MyMap;
+
+        #endregion
+
+        #region Properties
+
         public MapStyleModel MapStyles
         {
             get => _mapStyle;
             set => RaiseIfPropertyChanged(ref _mapStyle, value);
         }
+
+        public ObservableCollection<Pin> Pins { get; set; }
+
+        #endregion
+
+        #region Commands
+
+        public Command GoToMyLocationCommand { get; private set; }
+
+        #endregion
+
+        #region Constructor
 
         public TripMapViewModel(INavigation navigation, IApi api)
         {
@@ -41,15 +57,25 @@ namespace GrinScootersClone.ViewModels
             GoToMyLocationCommand = new Command(
                 async () => await MoveToCurrentPosition()
             );
-
-            Initialization = InitializationAsync();
         }
 
-        private async Task InitializationAsync()
+        #endregion
+
+        #region Methods
+
+        public async Task InitializeAsync()
         {
+            LoadInitialLocation();
+
             await LoadMapStyleAsync();
             await MoveToCurrentPosition();
             await GetPlaces();
+        }
+
+        private void LoadInitialLocation()
+        {
+            MyMap.InitialCameraUpdate = CameraUpdateFactory.NewPositionZoom(
+                GetPosition(_defaultLatitude, _defaultLongitude), 3);
         }
 
         private async Task LoadMapStyleAsync()
@@ -57,7 +83,7 @@ namespace GrinScootersClone.ViewModels
             try
             {
                 MapStyles = await _api.GetMapStyle();
-                MyMap.MapStyle = GoogleMaps.MapStyle.FromJson(MapStyles.MapStyle);
+                MyMap.MapStyle = MapStyle.FromJson(MapStyles.MapStyle);
             }
             catch (Exception ex)
             {
@@ -70,15 +96,15 @@ namespace GrinScootersClone.ViewModels
             var location = await GetLocationAsync();
 
             if (location == null)
-                location = new Location(-23.5504533, -46.6360999);
+                location = new Location(_defaultLatitude, _defaultLongitude);
 
-            MyMap.MoveToRegion(GoogleMaps.MapSpan.FromCenterAndRadius(
-                 new GoogleMaps.Position(location.Latitude, location.Longitude), GoogleMaps.Distance.FromMeters(400)));
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
+                 GetPosition(location.Latitude, location.Longitude), Distance.FromMeters(400)));
         }
 
         public async Task<Location> GetLocationAsync()
         {
-            var status = await CheckAndRequestPermissionAsync(new Permissions.LocationWhenInUse());
+            var status = await CheckAndRequestPermissionAsync(new LocationWhenInUse());
             if (status != PermissionStatus.Granted)
             {
                 MyMap.MyLocationEnabled = false;
@@ -118,13 +144,21 @@ namespace GrinScootersClone.ViewModels
         {
             foreach (var place in places)
             {
-                Pins.Add(new GoogleMaps.Pin
+                Pins.Add(new Pin
                 {
                     Label = place.Description,
-                    Position = new GoogleMaps.Position(place.Latitude, place.Longitude),
-                    Icon = GoogleMaps.BitmapDescriptorFactory.FromBundle(place.Icon)
+                    Position = GetPosition(place.Latitude, place.Longitude),
+                    Icon = BitmapDescriptorFactory.FromBundle(place.Icon)
                 });
             }
         }
+
+        private Position GetPosition(double latitude, double longitude)
+        {
+            return new
+                Position(latitude, longitude);
+        }
+
+        #endregion
     }
 }

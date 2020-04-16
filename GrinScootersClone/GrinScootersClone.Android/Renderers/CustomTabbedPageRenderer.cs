@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Support.Design.BottomNavigation;
+﻿using Android.Content;
 using Android.Support.Design.Widget;
-using Android.Support.V4.View;
-using Android.Views;
-using Android.Widget;
 using GrinScootersClone.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -25,9 +13,9 @@ namespace GrinScootersClone.Droid.Renderers
         private readonly int _minimumHeight = 190;
         private BottomNavigationView _bottomNavigationView;
 
-        public CustomTabbedPageRenderer(Context context) 
+        public CustomTabbedPageRenderer(Context context)
             : base(context)
-        {  
+        {
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<TabbedPage> e)

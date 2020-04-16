@@ -1,9 +1,6 @@
-﻿using GrinScootersClone.Services;
+﻿using GrinScootersClone.Interfaces;
+using GrinScootersClone.Services;
 using GrinScootersClone.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -20,18 +17,34 @@ namespace GrinScootersClone.Views.Trip
 
             map.UiSettings.ZoomControlsEnabled = false;
             map.UiSettings.RotateGesturesEnabled = false;
+
             BindingContext = new TripMapViewModel(Navigation, ApiService.Instance);
             TripMapViewModel.MyMap = map;
 
-            map.CameraIdled += async (sender, e) =>
+            map.CameraIdled += async (sender, e) => { await SearchingVisible(); };
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await OnAppearingAsync();
+        }
+
+        private async Task OnAppearingAsync()
+        {
+            if (BindingContext is IInitialize viewModel)
             {
-                Searching.IsVisible = true;
+                await viewModel.InitializeAsync();
+            }
+        }
 
-                await Task.Delay(300);
+        private async Task SearchingVisible()
+        {
+            Searching.IsVisible = true;
 
-                Searching.IsVisible = false;
+            await Task.Delay(300);
 
-            };
+            Searching.IsVisible = false;
         }
     }
 }
