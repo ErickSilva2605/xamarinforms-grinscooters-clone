@@ -164,6 +164,9 @@
     <BundleResource Include="Resources\map_location.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="map_station_pin.png" />
+    <BundleResource Include="Resources\map_station_pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map_scooter_pin.png" />
   </ItemGroup>
 </Project>
