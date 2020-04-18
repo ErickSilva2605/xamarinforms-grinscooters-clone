@@ -169,4 +169,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\map_scooter_pin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_ask_for_contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_ask_for_refund.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_qr_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_send_to_contact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_transaction_history.png" />
+  </ItemGroup>
 </Project>
