@@ -12,5 +12,8 @@ namespace GrinScootersClone.Interfaces
 
         [Get("/map/pins")]
         Task<IList<PlaceModel>> GetPlaces();
+
+        [Get("/wallet")]
+        Task<WalletModel> GetWallet();
     }
 }

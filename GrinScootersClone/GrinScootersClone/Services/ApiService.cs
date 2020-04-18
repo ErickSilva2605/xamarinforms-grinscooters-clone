@@ -37,6 +37,12 @@ namespace GrinScootersClone.Services
             return await _api.GetPlaces();
         }
 
+        public async Task<WalletModel> GetWallet()
+        {
+            return await _api.GetWallet();
+        }
+
+
         #endregion
     }
 }
