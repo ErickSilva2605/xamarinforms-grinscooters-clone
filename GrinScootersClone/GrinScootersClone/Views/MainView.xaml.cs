@@ -2,6 +2,7 @@
 using GrinScootersClone.Views.Trip;
 using GrinScootersClone.Views.Wallet;
 using System.ComponentModel;
+using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using TabbedPage = Xamarin.Forms.TabbedPage;
@@ -24,6 +25,19 @@ namespace GrinScootersClone.Views
             Children.Add(new TripMapView());
             Children.Add(new WalletView());
             Children.Add(new ProfileView());
+        }
+
+        protected override void OnCurrentPageChanged()
+        {
+            base.OnCurrentPageChanged();
+
+            if (CurrentPage is WalletView)
+            {
+                NavigationPage.SetHasNavigationBar(this, true);
+                return;
+            }
+
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

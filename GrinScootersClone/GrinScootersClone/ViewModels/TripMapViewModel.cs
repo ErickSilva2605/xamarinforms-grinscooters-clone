@@ -45,7 +45,7 @@ namespace GrinScootersClone.ViewModels
 
         #endregion
 
-        #region Constructor
+        #region Constructors
 
         public TripMapViewModel(INavigation navigation, IApi api)
         {

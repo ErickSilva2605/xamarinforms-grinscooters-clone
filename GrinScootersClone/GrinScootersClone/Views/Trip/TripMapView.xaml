@@ -34,7 +34,7 @@
                 Grid.Row="0"
                 HorizontalOptions="Start"
                 Source="map_help"
-                Style="{StaticResource RoundedWhiteButton}"
+                Style="{StaticResource RoundedSmallWhiteButton}"
                 VerticalOptions="Start"
                 />
 
@@ -59,7 +59,7 @@
                 Command="{Binding GoToMyLocationCommand}"
                 HorizontalOptions="End"
                 Source="map_location"
-                Style="{StaticResource RoundedWhiteButton}"
+                Style="{StaticResource RoundedSmallWhiteButton}"
                 VerticalOptions="Start"
                 />
 

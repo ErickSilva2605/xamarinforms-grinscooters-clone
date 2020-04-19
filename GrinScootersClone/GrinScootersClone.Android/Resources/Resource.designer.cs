@@ -8740,6 +8740,24 @@ namespace GrinScootersClone.Droid
 			// aapt resource value: 0x7F070090
 			public const int tooltip_frame_light = 2131165328;
 			
+			// aapt resource value: 0x7F070091
+			public const int wallet_ask_for_contact = 2131165329;
+			
+			// aapt resource value: 0x7F070092
+			public const int wallet_ask_for_refund = 2131165330;
+			
+			// aapt resource value: 0x7F070093
+			public const int wallet_help = 2131165331;
+			
+			// aapt resource value: 0x7F070094
+			public const int wallet_qr_code = 2131165332;
+			
+			// aapt resource value: 0x7F070095
+			public const int wallet_send_to_contact = 2131165333;
+			
+			// aapt resource value: 0x7F070096
+			public const int wallet_transaction_history = 2131165334;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

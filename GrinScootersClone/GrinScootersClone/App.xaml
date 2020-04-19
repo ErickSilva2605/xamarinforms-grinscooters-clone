@@ -25,7 +25,7 @@
             <Setter Property="BackgroundColor" Value="{StaticResource MainColor}" />
         </Style>
 
-        <Style x:Key="RoundedWhiteButton" TargetType="ImageButton">
+        <Style x:Key="RoundedSmallWhiteButton" TargetType="ImageButton">
             <Setter Property="CornerRadius" Value="20" />
             <Setter Property="HeightRequest" Value="40" />
             <Setter Property="WidthRequest" Value="40" />
