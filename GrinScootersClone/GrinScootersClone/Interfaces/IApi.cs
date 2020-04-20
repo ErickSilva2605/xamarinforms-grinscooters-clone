@@ -15,5 +15,11 @@ namespace GrinScootersClone.Interfaces
 
         [Get("/wallet")]
         Task<WalletModel> GetWallet();
+
+        [Get("/account")]
+        Task<AccountModel> GetAccount();
+
+        [Get("/menu")]
+        Task<IList<MenuModel>> GetMenus();
     }
 }

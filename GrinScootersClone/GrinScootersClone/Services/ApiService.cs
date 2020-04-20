@@ -42,6 +42,16 @@ namespace GrinScootersClone.Services
             return await _api.GetWallet();
         }
 
+        public async Task<AccountModel> GetAccount()
+        {
+            return await _api.GetAccount();
+        }
+
+        public async Task<IList<MenuModel>> GetMenus()
+        {
+            return await _api.GetMenus();
+        }
+
 
         #endregion
     }
