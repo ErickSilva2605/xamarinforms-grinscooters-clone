@@ -8726,37 +8726,58 @@ namespace GrinScootersClone.Droid
 			public const int notify_panel_notification_icon_bg = 2131165323;
 			
 			// aapt resource value: 0x7F07008C
-			public const int tab_profile = 2131165324;
+			public const int profile_gift = 2131165324;
 			
 			// aapt resource value: 0x7F07008D
-			public const int tab_trip = 2131165325;
+			public const int profile_help = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
-			public const int tab_wallet = 2131165326;
+			public const int profile_logoff = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
-			public const int tooltip_frame_dark = 2131165327;
+			public const int profile_promotion = 2131165327;
 			
 			// aapt resource value: 0x7F070090
-			public const int tooltip_frame_light = 2131165328;
+			public const int profile_racing_history = 2131165328;
 			
 			// aapt resource value: 0x7F070091
-			public const int wallet_ask_for_contact = 2131165329;
+			public const int profile_star = 2131165329;
 			
 			// aapt resource value: 0x7F070092
-			public const int wallet_ask_for_refund = 2131165330;
+			public const int profile_terms = 2131165330;
 			
 			// aapt resource value: 0x7F070093
-			public const int wallet_help = 2131165331;
+			public const int tab_profile = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int wallet_qr_code = 2131165332;
+			public const int tab_trip = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int wallet_send_to_contact = 2131165333;
+			public const int tab_wallet = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int wallet_transaction_history = 2131165334;
+			public const int tooltip_frame_dark = 2131165334;
+			
+			// aapt resource value: 0x7F070097
+			public const int tooltip_frame_light = 2131165335;
+			
+			// aapt resource value: 0x7F070098
+			public const int wallet_ask_for_contact = 2131165336;
+			
+			// aapt resource value: 0x7F070099
+			public const int wallet_ask_for_refund = 2131165337;
+			
+			// aapt resource value: 0x7F07009A
+			public const int wallet_help = 2131165338;
+			
+			// aapt resource value: 0x7F07009B
+			public const int wallet_qr_code = 2131165339;
+			
+			// aapt resource value: 0x7F07009C
+			public const int wallet_send_to_contact = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int wallet_transaction_history = 2131165341;
 			
 			static Drawable()
 			{
