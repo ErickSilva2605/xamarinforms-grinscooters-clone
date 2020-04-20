@@ -9,24 +9,42 @@ namespace GrinScootersClone.ViewModels
 {
     public class ProfileViewModel : BaseViewModel, IInitialize
     {
-        public Task Initialization { get; }
+        #region Fields
 
         private readonly INavigation _navigation;
         private readonly IApi _api;
 
+        private string _title;
         private AccountModel _account;
+        private IList<MenuModel> _menus;
+
+        #endregion
+
+        #region Properties
+
+        public Task Initialization { get; }
+
+        public string Title
+        {
+            get => _title;
+            set => RaiseIfPropertyChanged(ref _title, value);
+        }
+
         public AccountModel Account
         {
             get => _account;
             set => RaiseIfPropertyChanged(ref _account, value);
         }
 
-        private IList<MenuModel> _menus;
         public IList<MenuModel> Menus
         {
             get => _menus;
             set => RaiseIfPropertyChanged(ref _menus, value);
         }
+
+        #endregion
+
+        #region Constructors
 
         public ProfileViewModel(INavigation navigation, IApi api)
         {
@@ -36,22 +54,31 @@ namespace GrinScootersClone.ViewModels
             Initialization = InitializeAsync();
         }
 
+        #endregion
+
+        #region Methods
         public async Task InitializeAsync()
         {
-            await LoadAccountAsync();
+            await LoadProfileAsync();
             await LoadMenusAsync();
         }
 
-        private async Task LoadAccountAsync()
+        private async Task LoadProfileAsync()
         {
             try
             {
                 Account = await _api.GetAccount();
+                Title = GetTitle(Account.Name);
             }
             catch (Exception exception)
             {
                 System.Diagnostics.Debug.WriteLine(exception.Message);
             }
+        }
+
+        private string GetTitle(string name)
+        {
+            return name.Split(' ')[0];
         }
 
         private async Task LoadMenusAsync()
@@ -66,5 +93,7 @@ namespace GrinScootersClone.ViewModels
                 System.Diagnostics.Debug.WriteLine(exception.Message);
             }
         }
+
+        #endregion
     }
 }

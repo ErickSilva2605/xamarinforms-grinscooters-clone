@@ -5,17 +5,87 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Perfil"
+    Title="{Binding Title}"
     IconImageSource="tab_profile"
     mc:Ignorable="d"
     >
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Profile View"
-                VerticalOptions="CenterAndExpand"
-                />
-        </StackLayout>
+        <ScrollView>
+
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="110" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+
+                <FlexLayout
+                    Grid.Row="0"
+                    Padding="20,0"
+                    AlignItems="Center"
+                    Direction="Row"
+                    >
+
+                    <Frame
+                        Padding="0"
+                        CornerRadius="30"
+                        HasShadow="False"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        >
+                        <Image Source="{Binding Account.Photo}" />
+                    </Frame>
+
+                    <StackLayout Padding="15,0,0,0" Spacing="0">
+                        <Label
+                            Padding="0,0,0,5"
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{Binding Account.Name}"
+                            TextColor="Black"
+                            />
+                        <Label
+                            FontSize="Small"
+                            Text="{Binding Account.Email}"
+                            TextColor="Gray"
+                            />
+                    </StackLayout>
+
+                </FlexLayout>
+
+                <StackLayout Grid.Row="1" BindableLayout.ItemsSource="{Binding Menus}">
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+
+                            <FlexLayout
+                                Padding="20,0,0,0"
+                                AlignItems="Center"
+                                HeightRequest="50"
+                                >
+                                <Image HeightRequest="20" Source="{Binding Icon}" />
+                                <Label
+                                    Margin="10,0,0,0"
+                                    Text="{Binding Name}"
+                                    TextColor="Black"
+                                    />
+                            </FlexLayout>
+
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+
+                <StackLayout Grid.Row="2">
+                    <Label
+                        Margin="0,0,20,0"
+                        HorizontalTextAlignment="End"
+                        Text="1.23.2"
+                        />
+                </StackLayout>
+
+            </Grid>
+
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
