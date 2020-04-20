@@ -187,4 +187,25 @@
   <ItemGroup>
     <BundleResource Include="Resources\wallet_transaction_history.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile_terms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile_gift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile_help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile_logoff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile_promotion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile_racing_history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profile_star.png" />
+  </ItemGroup>
 </Project>
