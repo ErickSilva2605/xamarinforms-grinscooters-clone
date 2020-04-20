@@ -15,11 +15,11 @@
         <ResourceDictionary>
             <Style x:Key="ShadowButton" TargetType="Frame">
                 <Setter Property="Padding" Value="0" />
-                <Setter Property="CornerRadius" Value="35" />
-                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="HeightRequest" Value="60" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="WidthRequest" Value="60" />
             </Style>
 
             <Style x:Key="RoundedWhiteButton" TargetType="ImageButton">
@@ -27,6 +27,7 @@
                 <Setter Property="HeightRequest" Value="80" />
                 <Setter Property="WidthRequest" Value="80" />
                 <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Padding" Value="20" />
                 <Setter Property="BackgroundColor" Value="White" />
                 <Setter Property="BorderWidth" Value="1" />
@@ -40,6 +41,7 @@
                 <Setter Property="Padding" Value="13" />
                 <Setter Property="BackgroundColor" Value="White" />
                 <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
             </Style>
 
         </ResourceDictionary>

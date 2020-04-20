@@ -47,7 +47,7 @@
                         <Label
                             FontSize="Small"
                             Text="{Binding Account.Email}"
-                            TextColor="Gray"
+                            TextColor="#515151"
                             />
                     </StackLayout>
 
