@@ -40,5 +40,7 @@
     <string>Esse aplicativo precisa acessar a sua localização.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>Esse aplicativo precisa acessar a sua localização.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Esse aplicativo precisa acessar a sua para ler o QR Code.</string>
 </dict>
 </plist>

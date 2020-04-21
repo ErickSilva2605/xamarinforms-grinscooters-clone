@@ -22,6 +22,7 @@ namespace GrinScootersClone.iOS
             global::Xamarin.Forms.Forms.Init();
 
             Xamarin.FormsGoogleMaps.Init("AIzaSyDZDTKnW6IIskM1HRekT1n9d0vnJvBIzWk");
+            global::ZXing.Net.Mobile.Forms.iOS.Platform.Init();
 
             LoadApplication(new App());
 
