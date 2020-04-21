@@ -214,4 +214,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\profile_star.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map_scanner_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map_scanner_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map_scanner_code_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map_scanner_flash_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\map_scanner_flash_on.png" />
+  </ItemGroup>
 </Project>
