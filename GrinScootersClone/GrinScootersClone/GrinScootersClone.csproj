@@ -26,6 +26,9 @@
     <Compile Update="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Trip\TripScannerView.xaml.cs">
+      <DependentUpon>TripScannerView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +38,7 @@
     <EmbeddedResource Update="Views\Trip\TripMapView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Trip\TripModalScannerView.xaml">
+    <EmbeddedResource Update="Views\Trip\TripScannerView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Wallet\WalletView.xaml">

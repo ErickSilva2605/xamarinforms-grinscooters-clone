@@ -161,7 +161,7 @@
                     VerticalTextAlignment="Center"
                     />
                 <ImageButton
-                    Clicked="CloseModal"
+                    Command="{Binding CloseCommand}"
                     HorizontalOptions="End"
                     Source="map_scanner_close"
                     Style="{StaticResource RoundedSmallWhiteButton}"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GrinScootersClone.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,7 @@ namespace GrinScootersClone.Views.Trip
         public TripScannerView()
         {
             InitializeComponent();
-        }
-
-        async void CloseModal(object sender, EventArgs args)
-        {
-            await Navigation.PopModalAsync();
+            BindingContext = new TripScannerViewModel(Navigation);
         }
     }
 }
