@@ -10,11 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace GrinScootersClone.Views.Trip
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TripModalScannerView : ContentPage
+    public partial class TripScannerView : ContentPage
     {
-        public TripModalScannerView()
+        public TripScannerView()
         {
             InitializeComponent();
+        }
+
+        async void CloseModal(object sender, EventArgs args)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }

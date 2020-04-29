@@ -43,7 +43,7 @@ namespace GrinScootersClone.ViewModels
         #region Commands
 
         public Command GoToMyLocationCommand { get; private set; }
-        public Command GoToModalScanner { get; private set; }
+        public Command GoToScannerView { get; private set; }
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace GrinScootersClone.ViewModels
                 async () => await MoveToCurrentPosition()
             );
 
-            GoToModalScanner = new Command(
+            GoToScannerView = new Command(
                 async () => await NavigateToAsync()
             );
         }
@@ -81,7 +81,7 @@ namespace GrinScootersClone.ViewModels
         private void LoadInitialLocation()
         {
             MyMap.InitialCameraUpdate = CameraUpdateFactory.NewPositionZoom(
-                GetPosition(_defaultLatitude, _defaultLongitude), 3);
+                GetPosition(_defaultLatitude, _defaultLongitude), 2);
         }
 
         private async Task LoadMapStyleAsync()
@@ -167,7 +167,7 @@ namespace GrinScootersClone.ViewModels
 
         private async Task NavigateToAsync()
         {
-            await _navigation.PushModalAsync(new TripModalScannerView());
+            await _navigation.PushAsync(new TripScannerView());
         }
 
         #endregion

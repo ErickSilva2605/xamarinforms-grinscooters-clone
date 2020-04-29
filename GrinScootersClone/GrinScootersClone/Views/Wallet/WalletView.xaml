@@ -23,12 +23,12 @@
             </Style>
 
             <Style x:Key="RoundedWhiteButton" TargetType="ImageButton">
-                <Setter Property="CornerRadius" Value="40" />
-                <Setter Property="HeightRequest" Value="80" />
-                <Setter Property="WidthRequest" Value="80" />
+                <Setter Property="CornerRadius" Value="35" />
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="WidthRequest" Value="70" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Padding" Value="20" />
+                <Setter Property="Padding" Value="18" />
                 <Setter Property="BackgroundColor" Value="White" />
                 <Setter Property="BorderWidth" Value="1" />
                 <Setter Property="BorderColor" Value="#E2E2E2" />
@@ -131,14 +131,14 @@
                             TextColor="Black"
                             />
 
-                        <Grid>
+                        <Grid ColumnSpacing="30">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
@@ -160,7 +160,6 @@
                             <Label
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                Margin="50,0"
                                 HorizontalTextAlignment="Center"
                                 Text="Pedir para contato"
                                 TextColor="Black"
@@ -187,14 +186,18 @@
                 </Frame>
 
 
-                <Grid Grid.Row="2" Padding="30,0">
+                <Grid
+                    Grid.Row="2"
+                    Padding="20,0"
+                    ColumnSpacing="10"
+                    >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
@@ -220,7 +223,7 @@
                     <Label
                         Grid.Row="1"
                         Grid.Column="1"
-                        Margin="25,0"
+                        Padding="5,0"
                         HorizontalTextAlignment="Center"
                         Text="Pedir reembolso"
                         TextColor="Black"
