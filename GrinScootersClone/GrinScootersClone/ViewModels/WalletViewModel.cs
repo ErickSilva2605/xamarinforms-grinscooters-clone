@@ -33,11 +33,20 @@ namespace GrinScootersClone.ViewModels
         {
             _api = api;
             _navigation = navigation;
+
+            LoadNavBar();
         }
 
         #endregion
 
         #region Methods
+
+        private void LoadNavBar()
+        {
+            NavBackgroundColor = "#09D46B";
+            NavArrow = "navbar_arrow_white";
+            NavBarButtonVisible = false;
+        }
 
         public async Task InitializeAsync()
         {

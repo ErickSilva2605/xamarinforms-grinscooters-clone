@@ -30,20 +30,21 @@ namespace GrinScootersClone.ViewModels
             GoBackCommand = new Command(
                 async () => await NavigateToBackAsync()
             );
-            
-            Load();
+
+            LoadNavBar();
         }
 
         #endregion
 
         #region Methods
 
-        private void Load()
+        private void LoadNavBar()
         {
             Title = "Central de Ajuda";
             NavArrow = "navbar_arrow_black";
             NavBackgroundColor = "#F5F5F5";
             HelpCenterUrl = _helpUrl;
+            NavBarButtonVisible = true;
         }
 
         private async Task NavigateToBackAsync()

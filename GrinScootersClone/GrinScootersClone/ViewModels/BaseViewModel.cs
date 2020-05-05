@@ -49,6 +49,13 @@ namespace GrinScootersClone.ViewModels
             get => _navBackgroundColor;
             set => RaiseIfPropertyChanged(ref _navBackgroundColor, value);
         }
+        
+        private bool _navBarButtonVisible;
+        public bool NavBarButtonVisible
+        {
+            get => _navBarButtonVisible;
+            set => RaiseIfPropertyChanged(ref _navBarButtonVisible, value);
+        }
 
         private string _helpCenterUrl;
         public string HelpCenterUrl

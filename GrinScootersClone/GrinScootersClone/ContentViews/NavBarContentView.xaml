@@ -3,14 +3,16 @@
     x:Class="GrinScootersClone.ContentViews.NavBarContentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:GrinScootersClone.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     >
     <ContentView.Content>
-        <Frame
+        <controls:CustomFrame
             Padding="0"
             BackgroundColor="{Binding NavBackgroundColor}"
+            Elevation="15"
             HasShadow="True"
             HeightRequest="56"
             HorizontalOptions="FillAndExpand"
@@ -25,6 +27,7 @@
                     />
                 <ImageButton
                     Padding="9"
+                    IsVisible="{Binding NavBarButtonVisible}"
                     BackgroundColor="{Binding NavBackgroundColor}"
                     Command="{Binding GoBackCommand}"
                     CornerRadius="20"
@@ -35,6 +38,6 @@
                     WidthRequest="40"
                     />
             </Grid>
-        </Frame>
+        </controls:CustomFrame>
     </ContentView.Content>
 </ContentView>
