@@ -110,6 +110,7 @@
 
                             <Button
                                 BackgroundColor="#FDFFFE"
+                                Command="{Binding AddBalanceCommand}"
                                 CornerRadius="20"
                                 FontAttributes="Bold"
                                 FontSize="13"

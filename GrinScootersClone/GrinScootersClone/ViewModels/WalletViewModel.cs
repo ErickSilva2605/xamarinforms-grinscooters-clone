@@ -1,5 +1,6 @@
 ﻿using GrinScootersClone.Interfaces;
 using GrinScootersClone.Models;
+using GrinScootersClone.Views.Wallet;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -27,12 +28,22 @@ namespace GrinScootersClone.ViewModels
 
         #endregion
 
+        #region Commands
+
+        public Command AddBalanceCommand { get; private set; }
+
+        #endregion
+
         #region Constructors
 
         public WalletViewModel(INavigation navigation, IApi api)
         {
             _api = api;
             _navigation = navigation;
+
+            AddBalanceCommand = new Command(
+                async () => await NavigateToAddBalanceAsync()
+            );
 
             LoadNavBar();
         }
@@ -65,6 +76,10 @@ namespace GrinScootersClone.ViewModels
             }
         }
 
+        private async Task NavigateToAddBalanceAsync()
+        {
+            await _navigation.PushModalAsync(new AddBalanceView());
+        }
         #endregion
     }
 }
