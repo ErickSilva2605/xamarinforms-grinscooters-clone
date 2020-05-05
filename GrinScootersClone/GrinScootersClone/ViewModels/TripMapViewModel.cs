@@ -1,5 +1,6 @@
 ﻿using GrinScootersClone.Interfaces;
 using GrinScootersClone.Models;
+using GrinScootersClone.Views.HelpCenter;
 using GrinScootersClone.Views.Trip;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,8 @@ namespace GrinScootersClone.ViewModels
         #region Commands
 
         public Command GoToMyLocationCommand { get; private set; }
-        public Command GoToScannerView { get; private set; }
+        public Command GoToScannerCommand { get; private set; }
+        public Command GoToHelpCenterCommand { get; private set; }
 
         #endregion
 
@@ -60,8 +62,12 @@ namespace GrinScootersClone.ViewModels
                 async () => await MoveToCurrentPosition()
             );
 
-            GoToScannerView = new Command(
-                async () => await NavigateToAsync()
+            GoToScannerCommand = new Command(
+                async () => await NavigateToScannerAsync()
+            );
+
+            GoToHelpCenterCommand = new Command(
+                async () => await NavigateToHelpCenterAsync()
             );
         }
 
@@ -165,9 +171,14 @@ namespace GrinScootersClone.ViewModels
                 Position(latitude, longitude);
         }
 
-        private async Task NavigateToAsync()
+        private async Task NavigateToScannerAsync()
         {
             await _navigation.PushAsync(new TripScannerView());
+        }
+
+        private async Task NavigateToHelpCenterAsync()
+        {
+            await _navigation.PushModalAsync(new HelpCenterView());
         }
 
         #endregion

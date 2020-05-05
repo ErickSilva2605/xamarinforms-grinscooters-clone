@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrinScootersClone.Views.HelpCenter.HelpCenterView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contentView="clr-namespace:GrinScootersClone.ContentViews"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    NavigationPage.HasBackButton="True"
+    mc:Ignorable="d"
+    >
+
+    <ContentPage.Content>
+        <FlexLayout Direction="Column">
+            <ContentView>
+                <contentView:NavBarContentView />
+            </ContentView>
+            <WebView FlexLayout.Grow="1" Source="{Binding HelpCenterUrl}" />
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

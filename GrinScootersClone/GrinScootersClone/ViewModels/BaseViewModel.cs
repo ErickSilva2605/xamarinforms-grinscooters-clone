@@ -28,5 +28,33 @@ namespace GrinScootersClone.ViewModels
             get => _isBusy;
             set => RaiseIfPropertyChanged(ref _isBusy, value);
         }
+
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set => RaiseIfPropertyChanged(ref _title, value);
+        }
+
+        private string _navArrow;
+        public string NavArrow
+        {
+            get => _navArrow;
+            set => RaiseIfPropertyChanged(ref _navArrow, value);
+        }
+
+        private string _navBackgroundColor;
+        public string NavBackgroundColor
+        {
+            get => _navBackgroundColor;
+            set => RaiseIfPropertyChanged(ref _navBackgroundColor, value);
+        }
+
+        private string _helpCenterUrl;
+        public string HelpCenterUrl
+        {
+            get => _helpCenterUrl;
+            set => RaiseIfPropertyChanged(ref _helpCenterUrl, value);
+        }
     }
 }

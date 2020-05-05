@@ -32,6 +32,7 @@
 
             <ImageButton
                 Grid.Row="0"
+                Command="{Binding GoToHelpCenterCommand}"
                 HorizontalOptions="Start"
                 Source="map_help"
                 Style="{StaticResource RoundedSmallWhiteButton}"
@@ -74,7 +75,7 @@
                 >
                 <Button
                     Padding="45,0,0,0"
-                    Command="{Binding GoToScannerView}"
+                    Command="{Binding GoToScannerCommand}"
                     ContentLayout="Left, -85"
                     HorizontalOptions="Center"
                     ImageSource="map_scan"
