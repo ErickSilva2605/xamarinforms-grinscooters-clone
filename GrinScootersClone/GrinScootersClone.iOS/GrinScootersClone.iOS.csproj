@@ -236,4 +236,16 @@
   <ItemGroup>
     <BundleResource Include="Resources\navbar_arrow_black.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_add_balance_card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_add_balance_wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_add__balance_arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\wallet_add_balance_gpay.png" />
+  </ItemGroup>
 </Project>

@@ -12,6 +12,10 @@
         <Color x:Key="MainColor">#09D46B</Color>
         <Color x:Key="LightGrayColor">#F5F5F5</Color>
 
+        <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{StaticResource LightGrayColor}" />
+        </Style>
+
         <Style x:Key="RoundedGreenButton" TargetType="Button">
             <Setter Property="CornerRadius" Value="50" />
             <Setter Property="TextColor" Value="White" />
@@ -30,6 +34,5 @@
             <Setter Property="Padding" Value="10" />
             <Setter Property="BackgroundColor" Value="White" />
         </Style>
-
     </Application.Resources>
 </Application>

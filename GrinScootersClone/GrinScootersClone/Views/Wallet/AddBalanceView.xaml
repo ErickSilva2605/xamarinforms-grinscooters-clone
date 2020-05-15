@@ -1,15 +1,392 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="GrinScootersClone.Views.Wallet.AddBalanceView">
+<ContentPage
+    x:Class="GrinScootersClone.Views.Wallet.AddBalanceView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contentView="clr-namespace:GrinScootersClone.ContentViews"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ValueFrame" TargetType="Frame">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="CornerRadius" Value="5" />
+                <Setter Property="HeightRequest" Value="75" />
+
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup>
+
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MainColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="UnSelected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+
+            </Style>
+
+            <Style x:Key="ValueLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup>
+
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="UnSelected">
+                                <VisualState.Setters>
+                                    <Setter Property="TextColor" Value="Black" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style x:Key="PopularFrame" TargetType="Frame">
+                <Setter Property="Margin" Value="0,-10,0,0" />
+                <Setter Property="Padding" Value="10,4" />
+                <Setter Property="CornerRadius" Value="4" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup>
+
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Black" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                            <VisualState x:Name="UnSelected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MainColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style x:Key="PopularLabel" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="Separator" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="#FFFFFF" />
+                <Setter Property="HeightRequest" Value="2" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <ContentView>
+                <contentView:NavBarContentView />
+            </ContentView>
+
+            <ScrollView Grid.Row="1">
+
+                <FlexLayout Padding="15" Direction="Column">
+
+                    <Grid
+                        x:Name="GridSection"
+                        ColumnSpacing="15"
+                        RowSpacing="15"
+                        >
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Margin="0,5"
+                            FontSize="15"
+                            TextColor="Black"
+                            >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Escolha o " />
+                                    <Span FontAttributes="Bold" Text="valor:" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Frame
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Style="{StaticResource ValueFrame}"
+                            >
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped" />
+                            </Frame.GestureRecognizers>
+
+                            <Label Style="{StaticResource ValueLabel}" Text="R$ 10" />
+                        </Frame>
+
+                        <Frame
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Style="{StaticResource ValueFrame}"
+                            >
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped" />
+                            </Frame.GestureRecognizers>
+
+                            <Label Style="{StaticResource ValueLabel}" Text="R$ 20" />
+                        </Frame>
+
+                        <Frame
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Style="{StaticResource ValueFrame}"
+                            >
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped" />
+                            </Frame.GestureRecognizers>
+
+                            <Label Style="{StaticResource ValueLabel}" Text="R$ 30" />
+                        </Frame>
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Style="{StaticResource ValueFrame}"
+                            >
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped" />
+                            </Frame.GestureRecognizers>
+
+                            <Label Style="{StaticResource ValueLabel}" Text="R$ 50" />
+                        </Frame>
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Style="{StaticResource ValueFrame}"
+                            >
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped" />
+                            </Frame.GestureRecognizers>
+
+                            <Label Style="{StaticResource ValueLabel}" Text="R$ 100" />
+                        </Frame>
+
+                        <Frame
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Style="{StaticResource ValueFrame}"
+                            >
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped" />
+                            </Frame.GestureRecognizers>
+
+                            <Label Style="{StaticResource ValueLabel}" Text="R$ 150" />
+                        </Frame>
+
+                        <Frame
+                            x:Name="PopularFrame"
+                            Grid.Row="1"
+                            Grid.RowSpan="1"
+                            Grid.Column="1"
+                            Style="{StaticResource PopularFrame}"
+                            >
+                            <Label Style="{StaticResource PopularLabel}" Text="Popular" />
+                        </Frame>
+
+                    </Grid>
+
+                    <BoxView Margin="0,30" Style="{StaticResource Separator}" />
+
+                    <StackLayout Orientation="Horizontal">
+
+                        <Image
+                            Margin="0,10,5,0"
+                            HeightRequest="25"
+                            Source="wallet_add_balance_wallet"
+                            VerticalOptions="Start"
+                            />
+
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span FontSize="16" Text="Que tal nunca deixar sua carteira vazia? &#10;" />
+                                    <Span
+                                        FontSize="16"
+                                        Text="Entenda como funciona&#10;"
+                                        TextDecorations="Underline"
+                                        />
+                                    <Span
+                                        FontSize="12"
+                                        LineHeight="1.9"
+                                        Text="Recarga automática só está disponível com cartão. &#x1F447;&#x1F3FB;"
+                                        />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Spacing="0">
+
+                        <Frame
+                            Margin="0,40,0,0"
+                            Padding="15"
+                            CornerRadius="4"
+                            HeightRequest="50"
+                            >
+                            <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
+
+                                <Label TextColor="Black">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span FontSize="16" Text="Recarga automática.&#10;" />
+                                            <Span
+                                                x:Name="RechargeSpan"
+                                                FontAttributes="Bold"
+                                                FontSize="18"
+                                                />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <Switch />
+
+                            </FlexLayout>
+                        </Frame>
+
+                    </StackLayout>
+
+                    <BoxView Margin="0,30" Style="{StaticResource Separator}" />
+
+                    <StackLayout Spacing="20">
+
+                        <Label TextColor="Black">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span FontSize="16" Text="Selecione o " />
+                                    <Span
+                                        FontAttributes="Bold"
+                                        FontSize="16"
+                                        Text="método de pagamento "
+                                        />
+                                    <Span FontSize="16" Text="que você deseja usar:" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Frame Padding="15" CornerRadius="4">
+                            <Grid ColumnSpacing="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Column="0"
+                                    Source="wallet_add_balance_card"
+                                    VerticalOptions="Center"
+                                    WidthRequest="25"
+                                    />
+                                <Label
+                                    Grid.Column="1"
+                                    FontSize="16"
+                                    Text="Ver todas as opções disponíveis"
+                                    TextColor="Black"
+                                    VerticalTextAlignment="Center"
+                                    />
+                                <Image
+                                    Grid.Column="2"
+                                    Source="wallet_add__balance_arrow_right"
+                                    VerticalOptions="Center"
+                                    WidthRequest="25"
+                                    />
+                            </Grid>
+                        </Frame>
+
+                        <Label
+                            FontSize="16"
+                            HorizontalTextAlignment="Center"
+                            Text="ou"
+                            TextColor="Black"
+                            />
+
+                        <Button
+                            Padding="160,0,0,0"
+                            BackgroundColor="Black"
+                            ContentLayout="Left, -400"
+                            CornerRadius="8"
+                            FontSize="16"
+                            HeightRequest="55"
+                            ImageSource="wallet_add_balance_gpay"
+                            Text="Pay"
+                            TextColor="White"
+                            />
+
+                    </StackLayout>
+
+                    <Button
+                        x:Name="PurchaseBtn"
+                        Margin="0,50,0,0"
+                        BackgroundColor="{StaticResource MainColor}"
+                        CornerRadius="30"
+                        FontSize="16"
+                        TextColor="White"
+                        />
+
+                </FlexLayout>
+
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
