@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GrinScootersClone.Views.Wallet.ContactView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contentView="clr-namespace:GrinScootersClone.ContentViews"
+    xmlns:controls="clr-namespace:GrinScootersClone.Controls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Margin="0,56,0,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <controls:CustomEntry
+                    x:Name="filterText"
+                    Grid.Row="0"
+                    Margin="10,10,15,0"
+                    Padding="15,0,0,0"
+                    BackgroundColor="{StaticResource LightGrayColor}"
+                    BorderColor="{StaticResource LightGrayColor}"
+                    BorderRadius="20"
+                    BorderWidth="1"
+                    HasBorder="True"
+                    HasPadding="True"
+                    HeightRequest="40"
+                    Placeholder="Enviar a"
+                    />
+
+                <Label
+                    Grid.Row="1"
+                    Margin="15,0"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HeightRequest="40"
+                    Text="Contatos"
+                    TextColor="{StaticResource MainColor}"
+                    VerticalTextAlignment="Center"
+                    />
+
+                <CollectionView Grid.Row="2" ItemsSource="{Binding Contacts}">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid Padding="15,8" ColumnSpacing="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Frame
+                                    Grid.Column="0"
+                                    Padding="0"
+                                    BackgroundColor="#D7D7D7"
+                                    CornerRadius="28"
+                                    HasShadow="False"
+                                    HeightRequest="54"
+                                    VerticalOptions="Center"
+                                    WidthRequest="54"
+                                    >
+
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Abbreviation}"
+                                        TextColor="White"
+                                        VerticalTextAlignment="Center"
+                                        />
+
+                                </Frame>
+
+                                <StackLayout
+                                    Grid.Column="1"
+                                    Spacing="0"
+                                    VerticalOptions="Center"
+                                    >
+
+                                    <Label Text="{Binding Name}" TextColor="Black" />
+
+                                    <Label FontSize="12" Text="{Binding Number}" />
+
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+            <ContentView
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                VerticalOptions="Start"
+                >
+                <contentView:NavBarContentView />
+            </ContentView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

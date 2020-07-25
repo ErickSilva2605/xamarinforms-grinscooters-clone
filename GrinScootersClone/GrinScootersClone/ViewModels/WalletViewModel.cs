@@ -4,6 +4,8 @@ using GrinScootersClone.Views.Wallet;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Essentials;
+using static Xamarin.Essentials.Permissions;
 
 namespace GrinScootersClone.ViewModels
 {
@@ -31,6 +33,7 @@ namespace GrinScootersClone.ViewModels
         #region Commands
 
         public Command AddBalanceCommand { get; private set; }
+        public Command SendToContactCommand { get; private set; }
 
         #endregion
 
@@ -43,6 +46,10 @@ namespace GrinScootersClone.ViewModels
 
             AddBalanceCommand = new Command(
                 async () => await NavigateToAddBalanceAsync()
+            );
+
+            SendToContactCommand = new Command(
+                async () => await NavigateToContactAsync()
             );
 
             LoadNavBar();
@@ -76,10 +83,31 @@ namespace GrinScootersClone.ViewModels
             }
         }
 
+        public async Task<PermissionStatus> CheckAndRequestPermissionAsync<T>(T permission)
+                    where T : BasePermission
+        {
+            var status = await permission.CheckStatusAsync();
+            if (status != PermissionStatus.Granted)
+            {
+                status = await permission.RequestAsync();
+            }
+
+            return status;
+        }
+
         private async Task NavigateToAddBalanceAsync()
         {
             await _navigation.PushModalAsync(new AddBalanceView());
         }
+        
+        private async Task NavigateToContactAsync()
+        {
+            var status = await CheckAndRequestPermissionAsync(new ContactsRead());
+
+            if(status == PermissionStatus.Granted)
+                await _navigation.PushModalAsync(new ContactView());
+        }
+
         #endregion
     }
 }

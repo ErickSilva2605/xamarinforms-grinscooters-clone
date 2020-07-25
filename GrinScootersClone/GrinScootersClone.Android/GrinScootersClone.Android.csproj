@@ -57,6 +57,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="IvanSurzhenko.Xamarin.Forms.Contacts">
+      <Version>1.2.2</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
@@ -80,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Renderers\CustomFrameRenderer.cs" />
     <Compile Include="Renderers\CustomTabbedPageRenderer.cs" />
     <Compile Include="Renderers\CustonButtonRenderer.cs" />
@@ -211,5 +215,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\wallet_add_balance_gpay.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

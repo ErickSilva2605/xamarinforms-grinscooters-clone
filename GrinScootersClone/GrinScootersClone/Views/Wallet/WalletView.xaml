@@ -149,7 +149,11 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <ImageButton Source="wallet_send_to_contact" Style="{StaticResource RoundedWhiteButton}" />
+                                <ImageButton
+                                    Command="{Binding SendToContactCommand}"
+                                    Source="wallet_send_to_contact"
+                                    Style="{StaticResource RoundedWhiteButton}"
+                                    />
 
                                 <Label
                                     Grid.Row="1"

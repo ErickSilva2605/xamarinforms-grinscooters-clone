@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="IvanSurzhenko.Xamarin.Forms.Contacts" Version="1.2.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
     <PackageReference Include="Refit" Version="5.1.67" />
@@ -48,6 +49,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Wallet\AddBalanceView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Wallet\ContactView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Wallet\WalletView.xaml">
